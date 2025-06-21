@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
-Partial Class From1
+Partial Class FormLogin
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -23,6 +23,7 @@ Partial Class From1
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Panel1 = New Panel()
+        picTogglePassword = New PictureBox()
         Label3 = New Label()
         Button2 = New Button()
         Button1 = New Button()
@@ -31,12 +32,14 @@ Partial Class From1
         txtUser = New TextBox()
         Label1 = New Label()
         Panel1.SuspendLayout()
+        CType(picTogglePassword, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
         ' Panel1
         ' 
         Panel1.Anchor = AnchorStyles.None
         Panel1.BackColor = Color.LightCyan
+        Panel1.Controls.Add(picTogglePassword)
         Panel1.Controls.Add(Label3)
         Panel1.Controls.Add(Button2)
         Panel1.Controls.Add(Button1)
@@ -48,6 +51,16 @@ Partial Class From1
         Panel1.Name = "Panel1"
         Panel1.Size = New Size(591, 380)
         Panel1.TabIndex = 0
+        ' 
+        ' picTogglePassword
+        ' 
+        picTogglePassword.Anchor = AnchorStyles.None
+        picTogglePassword.Image = My.Resources.Resources.eye_open
+        picTogglePassword.Location = New Point(481, 202)
+        picTogglePassword.Name = "picTogglePassword"
+        picTogglePassword.Size = New Size(34, 27)
+        picTogglePassword.TabIndex = 7
+        picTogglePassword.TabStop = False
         ' 
         ' Label3
         ' 
@@ -86,8 +99,7 @@ Partial Class From1
         txtPassword.Anchor = AnchorStyles.None
         txtPassword.Location = New Point(76, 202)
         txtPassword.Name = "txtPassword"
-        txtPassword.PasswordChar = "x"c
-        txtPassword.Size = New Size(439, 27)
+        txtPassword.Size = New Size(399, 27)
         txtPassword.TabIndex = 3
         ' 
         ' Label2
@@ -118,18 +130,19 @@ Partial Class From1
         Label1.TabIndex = 0
         Label1.Text = "Username"
         ' 
-        ' From1
+        ' FormLogin
         ' 
         AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
         CausesValidation = False
         ClientSize = New Size(1348, 746)
         Controls.Add(Panel1)
-        Name = "From1"
+        Name = "FormLogin"
         StartPosition = FormStartPosition.CenterScreen
         Text = "NeraSys"
         Panel1.ResumeLayout(False)
         Panel1.PerformLayout()
+        CType(picTogglePassword, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
     End Sub
 
@@ -141,5 +154,6 @@ Partial Class From1
     Friend WithEvents txtPassword As TextBox
     Friend WithEvents Label2 As Label
     Friend WithEvents txtUser As TextBox
+    Friend WithEvents picTogglePassword As PictureBox
 
 End Class

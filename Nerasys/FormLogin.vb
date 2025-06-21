@@ -1,41 +1,33 @@
 ﻿Imports MySql.Data.MySqlClient
 
-Public Class From1
-    Private Sub txtUser_MouseEnter(sender As Object, e As EventArgs) Handles txtUser.MouseEnter
-        Dim colorText As Color
-        colorText = Color.FromArgb(255, 0, 0, 0)
+Public Class FormLogin
+    Private Sub TxtUser_GotFocus(sender As Object, e As EventArgs) Handles txtUser.GotFocus
         If txtUser.Text = "Username" Then
             txtUser.Text = ""
-            txtUser.ForeColor = colorText
+            txtUser.ForeColor = Color.Black
         End If
     End Sub
 
-    Private Sub txtUser_MouseLeave(sender As Object, e As EventArgs) Handles txtUser.MouseLeave
-        Dim colorHint As Color
-        colorHint = Color.FromArgb(200, 200, 200)
+    Private Sub TxtUser_LostFocus(sender As Object, e As EventArgs) Handles txtUser.LostFocus
         If txtUser.Text = "" Then
             txtUser.Text = "Username"
-            txtUser.ForeColor = colorHint
+            txtUser.ForeColor = Color.Gray
         End If
     End Sub
 
-    Private Sub txtPassword_MouseEnter(sender As Object, e As EventArgs) Handles txtPassword.MouseEnter
-        Dim colorText As Color
-        colorText = Color.FromArgb(255, 0, 0, 0)
+    Private Sub TxtPassword_GotFocus(sender As Object, e As EventArgs) Handles txtPassword.GotFocus
         If txtPassword.Text = "Password" Then
             txtPassword.Text = ""
-            txtPassword.ForeColor = colorText
-            txtPassword.UseSystemPasswordChar = False
+            txtPassword.ForeColor = Color.Black
+            txtPassword.UseSystemPasswordChar = True
         End If
     End Sub
 
-    Private Sub txtPassword_MouseLeave(sender As Object, e As EventArgs) Handles txtPassword.MouseLeave
-        Dim colorHint As Color
-        colorHint = Color.FromArgb(200, 200, 200)
+    Private Sub TxtPassword_LostFocus(sender As Object, e As EventArgs) Handles txtPassword.LostFocus
         If txtPassword.Text = "" Then
             txtPassword.Text = "Password"
-            txtPassword.ForeColor = colorHint
-            txtPassword.UseSystemPasswordChar = True
+            txtPassword.ForeColor = Color.Gray
+            txtPassword.UseSystemPasswordChar = False
         End If
     End Sub
 
@@ -75,5 +67,31 @@ Public Class From1
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Application.Exit()
+    End Sub
+
+    Private Sub FormLogin_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        txtUser.Text = "Username"
+        txtUser.ForeColor = Color.Gray
+
+        txtPassword.Text = "Password"
+        txtPassword.ForeColor = Color.Gray
+        txtPassword.UseSystemPasswordChar = False
+
+        picTogglePassword.Image = My.Resources.eye_closed
+    End Sub
+
+    Dim isPasswordVisible As Boolean = False
+    Private Sub PicTogglePassword_Click(sender As Object, e As EventArgs) Handles picTogglePassword.Click
+        If isPasswordVisible Then
+            ' Hide password
+            txtPassword.UseSystemPasswordChar = True
+            picTogglePassword.Image = My.Resources.eye_closed ' Ganti sesuai nama resource
+            isPasswordVisible = False
+        Else
+            ' Show password
+            txtPassword.UseSystemPasswordChar = False
+            picTogglePassword.Image = My.Resources.eye_open
+            isPasswordVisible = True
+        End If
     End Sub
 End Class

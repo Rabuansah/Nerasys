@@ -29,12 +29,8 @@ Partial Class FormUser
         TextBox2 = New TextBox()
         ComboBox1 = New ComboBox()
         Button1 = New Button()
-        Button2 = New Button()
-        Button3 = New Button()
-        Button4 = New Button()
         DataGridView1 = New DataGridView()
-        Label4 = New Label()
-        TextBox3 = New TextBox()
+        Button2 = New Button()
         CType(DataGridView1, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
@@ -42,7 +38,7 @@ Partial Class FormUser
         ' 
         Label1.Anchor = AnchorStyles.None
         Label1.AutoSize = True
-        Label1.Location = New Point(67, 93)
+        Label1.Location = New Point(67, 101)
         Label1.Name = "Label1"
         Label1.Size = New Size(75, 20)
         Label1.TabIndex = 0
@@ -52,7 +48,7 @@ Partial Class FormUser
         ' 
         Label2.Anchor = AnchorStyles.None
         Label2.AutoSize = True
-        Label2.Location = New Point(67, 129)
+        Label2.Location = New Point(67, 137)
         Label2.Name = "Label2"
         Label2.Size = New Size(70, 20)
         Label2.TabIndex = 1
@@ -62,7 +58,7 @@ Partial Class FormUser
         ' 
         Label3.Anchor = AnchorStyles.None
         Label3.AutoSize = True
-        Label3.Location = New Point(67, 165)
+        Label3.Location = New Point(67, 173)
         Label3.Name = "Label3"
         Label3.Size = New Size(39, 20)
         Label3.TabIndex = 2
@@ -71,7 +67,7 @@ Partial Class FormUser
         ' TextBox1
         ' 
         TextBox1.Anchor = AnchorStyles.None
-        TextBox1.Location = New Point(172, 90)
+        TextBox1.Location = New Point(172, 98)
         TextBox1.Name = "TextBox1"
         TextBox1.Size = New Size(389, 27)
         TextBox1.TabIndex = 3
@@ -79,7 +75,7 @@ Partial Class FormUser
         ' TextBox2
         ' 
         TextBox2.Anchor = AnchorStyles.None
-        TextBox2.Location = New Point(172, 126)
+        TextBox2.Location = New Point(172, 134)
         TextBox2.Name = "TextBox2"
         TextBox2.PasswordChar = "x"c
         TextBox2.Size = New Size(389, 27)
@@ -89,7 +85,7 @@ Partial Class FormUser
         ' 
         ComboBox1.Anchor = AnchorStyles.None
         ComboBox1.FormattingEnabled = True
-        ComboBox1.Location = New Point(172, 162)
+        ComboBox1.Location = New Point(172, 170)
         ComboBox1.Name = "ComboBox1"
         ComboBox1.Size = New Size(389, 28)
         ComboBox1.TabIndex = 5
@@ -97,82 +93,39 @@ Partial Class FormUser
         ' Button1
         ' 
         Button1.Anchor = AnchorStyles.None
-        Button1.Location = New Point(67, 220)
+        Button1.Location = New Point(67, 46)
         Button1.Name = "Button1"
-        Button1.Size = New Size(95, 35)
+        Button1.Size = New Size(119, 35)
         Button1.TabIndex = 6
-        Button1.Text = "Input"
+        Button1.Text = "Add New User"
         Button1.UseVisualStyleBackColor = True
-        ' 
-        ' Button2
-        ' 
-        Button2.Anchor = AnchorStyles.None
-        Button2.Location = New Point(186, 220)
-        Button2.Name = "Button2"
-        Button2.Size = New Size(95, 35)
-        Button2.TabIndex = 7
-        Button2.Text = "Edit"
-        Button2.UseVisualStyleBackColor = True
-        ' 
-        ' Button3
-        ' 
-        Button3.Anchor = AnchorStyles.None
-        Button3.Location = New Point(302, 220)
-        Button3.Name = "Button3"
-        Button3.Size = New Size(95, 35)
-        Button3.TabIndex = 8
-        Button3.Text = "Hapus"
-        Button3.UseVisualStyleBackColor = True
-        ' 
-        ' Button4
-        ' 
-        Button4.Anchor = AnchorStyles.None
-        Button4.Location = New Point(421, 220)
-        Button4.Name = "Button4"
-        Button4.Size = New Size(95, 35)
-        Button4.TabIndex = 9
-        Button4.Text = "Tutup"
-        Button4.UseVisualStyleBackColor = True
         ' 
         ' DataGridView1
         ' 
         DataGridView1.Anchor = AnchorStyles.None
         DataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridView1.Location = New Point(67, 277)
+        DataGridView1.Location = New Point(67, 225)
         DataGridView1.Name = "DataGridView1"
         DataGridView1.RowHeadersWidth = 51
         DataGridView1.Size = New Size(494, 225)
         DataGridView1.TabIndex = 10
         ' 
-        ' Label4
+        ' Button2
         ' 
-        Label4.Anchor = AnchorStyles.None
-        Label4.AutoSize = True
-        Label4.Location = New Point(67, 57)
-        Label4.Name = "Label4"
-        Label4.Size = New Size(57, 20)
-        Label4.TabIndex = 11
-        Label4.Text = "ID User"
-        ' 
-        ' TextBox3
-        ' 
-        TextBox3.Anchor = AnchorStyles.None
-        TextBox3.Location = New Point(172, 54)
-        TextBox3.Name = "TextBox3"
-        TextBox3.Size = New Size(57, 27)
-        TextBox3.TabIndex = 12
+        Button2.Location = New Point(468, 46)
+        Button2.Name = "Button2"
+        Button2.Size = New Size(93, 35)
+        Button2.TabIndex = 11
+        Button2.Text = "Tutup"
+        Button2.UseVisualStyleBackColor = True
         ' 
         ' FormUser
         ' 
         AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(649, 549)
-        Controls.Add(TextBox3)
-        Controls.Add(Label4)
-        Controls.Add(DataGridView1)
-        Controls.Add(Button4)
-        Controls.Add(Button3)
+        ClientSize = New Size(649, 483)
         Controls.Add(Button2)
+        Controls.Add(DataGridView1)
         Controls.Add(Button1)
         Controls.Add(ComboBox1)
         Controls.Add(TextBox2)
@@ -196,10 +149,6 @@ Partial Class FormUser
     Friend WithEvents TextBox2 As TextBox
     Friend WithEvents ComboBox1 As ComboBox
     Friend WithEvents Button1 As Button
-    Friend WithEvents Button2 As Button
-    Friend WithEvents Button3 As Button
-    Friend WithEvents Button4 As Button
     Friend WithEvents DataGridView1 As DataGridView
-    Friend WithEvents Label4 As Label
-    Friend WithEvents TextBox3 As TextBox
+    Friend WithEvents Button2 As Button
 End Class

@@ -25,7 +25,6 @@ Partial Class HalamanUtama
         MenuStrip1 = New MenuStrip()
         MasterToolStripMenuItem = New ToolStripMenuItem()
         KodeRekeningToolStripMenuItem = New ToolStripMenuItem()
-        IdentitasPerusahaanToolStripMenuItem = New ToolStripMenuItem()
         UserToolStripMenuItem = New ToolStripMenuItem()
         TransaksiToolStripMenuItem = New ToolStripMenuItem()
         ToolStripSeparator1 = New ToolStripSeparator()
@@ -38,8 +37,6 @@ Partial Class HalamanUtama
         PemeliharaanToolStripMenuItem = New ToolStripMenuItem()
         SaldoAwalToolStripMenuItem = New ToolStripMenuItem()
         TutupBukuToolStripMenuItem1 = New ToolStripMenuItem()
-        AboutToolStripMenuItem = New ToolStripMenuItem()
-        IdentitasPerusahaanToolStripMenuItem1 = New ToolStripMenuItem()
         Panel1 = New Panel()
         Label3 = New Label()
         Panel3 = New Panel()
@@ -47,7 +44,10 @@ Partial Class HalamanUtama
         DateTimePicker1 = New DateTimePicker()
         Label2 = New Label()
         Panel2 = New Panel()
+        Label4 = New Label()
         Label1 = New Label()
+        RubrikToolStripMenuItem = New ToolStripMenuItem()
+        KodeKelompokToolStripMenuItem = New ToolStripMenuItem()
         MenuStrip1.SuspendLayout()
         Panel1.SuspendLayout()
         Panel2.SuspendLayout()
@@ -56,7 +56,7 @@ Partial Class HalamanUtama
         ' MenuStrip1
         ' 
         MenuStrip1.ImageScalingSize = New Size(20, 20)
-        MenuStrip1.Items.AddRange(New ToolStripItem() {MasterToolStripMenuItem, TransaksiToolStripMenuItem, LaporanToolStripMenuItem, PemeliharaanToolStripMenuItem, AboutToolStripMenuItem})
+        MenuStrip1.Items.AddRange(New ToolStripItem() {MasterToolStripMenuItem, TransaksiToolStripMenuItem, LaporanToolStripMenuItem, PemeliharaanToolStripMenuItem})
         MenuStrip1.Location = New Point(0, 0)
         MenuStrip1.Name = "MenuStrip1"
         MenuStrip1.Size = New Size(1348, 28)
@@ -65,7 +65,7 @@ Partial Class HalamanUtama
         ' 
         ' MasterToolStripMenuItem
         ' 
-        MasterToolStripMenuItem.DropDownItems.AddRange(New ToolStripItem() {KodeRekeningToolStripMenuItem, IdentitasPerusahaanToolStripMenuItem, UserToolStripMenuItem})
+        MasterToolStripMenuItem.DropDownItems.AddRange(New ToolStripItem() {RubrikToolStripMenuItem, KodeKelompokToolStripMenuItem, KodeRekeningToolStripMenuItem, UserToolStripMenuItem})
         MasterToolStripMenuItem.Name = "MasterToolStripMenuItem"
         MasterToolStripMenuItem.Size = New Size(68, 24)
         MasterToolStripMenuItem.Text = "Master"
@@ -73,19 +73,13 @@ Partial Class HalamanUtama
         ' KodeRekeningToolStripMenuItem
         ' 
         KodeRekeningToolStripMenuItem.Name = "KodeRekeningToolStripMenuItem"
-        KodeRekeningToolStripMenuItem.Size = New Size(227, 26)
+        KodeRekeningToolStripMenuItem.Size = New Size(199, 26)
         KodeRekeningToolStripMenuItem.Text = "Kode Rekening"
-        ' 
-        ' IdentitasPerusahaanToolStripMenuItem
-        ' 
-        IdentitasPerusahaanToolStripMenuItem.Name = "IdentitasPerusahaanToolStripMenuItem"
-        IdentitasPerusahaanToolStripMenuItem.Size = New Size(227, 26)
-        IdentitasPerusahaanToolStripMenuItem.Text = "Identitas Perusahaan"
         ' 
         ' UserToolStripMenuItem
         ' 
         UserToolStripMenuItem.Name = "UserToolStripMenuItem"
-        UserToolStripMenuItem.Size = New Size(227, 26)
+        UserToolStripMenuItem.Size = New Size(199, 26)
         UserToolStripMenuItem.Text = "User"
         ' 
         ' TransaksiToolStripMenuItem
@@ -156,19 +150,6 @@ Partial Class HalamanUtama
         TutupBukuToolStripMenuItem1.Size = New Size(167, 26)
         TutupBukuToolStripMenuItem1.Text = "Tutup Buku"
         ' 
-        ' AboutToolStripMenuItem
-        ' 
-        AboutToolStripMenuItem.DropDownItems.AddRange(New ToolStripItem() {IdentitasPerusahaanToolStripMenuItem1})
-        AboutToolStripMenuItem.Name = "AboutToolStripMenuItem"
-        AboutToolStripMenuItem.Size = New Size(64, 24)
-        AboutToolStripMenuItem.Text = "About"
-        ' 
-        ' IdentitasPerusahaanToolStripMenuItem1
-        ' 
-        IdentitasPerusahaanToolStripMenuItem1.Name = "IdentitasPerusahaanToolStripMenuItem1"
-        IdentitasPerusahaanToolStripMenuItem1.Size = New Size(227, 26)
-        IdentitasPerusahaanToolStripMenuItem1.Text = "Identitas Perusahaan"
-        ' 
         ' Panel1
         ' 
         Panel1.Anchor = AnchorStyles.None
@@ -234,23 +215,48 @@ Partial Class HalamanUtama
         ' 
         Panel2.Anchor = AnchorStyles.None
         Panel2.BackColor = Color.Aqua
+        Panel2.Controls.Add(Label4)
         Panel2.Controls.Add(Label1)
         Panel2.Location = New Point(25, 20)
         Panel2.Name = "Panel2"
-        Panel2.Size = New Size(459, 75)
+        Panel2.Size = New Size(459, 93)
         Panel2.TabIndex = 0
+        ' 
+        ' Label4
+        ' 
+        Label4.Anchor = AnchorStyles.None
+        Label4.AutoSize = True
+        Label4.Font = New Font("Cambria", 9F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        Label4.Location = New Point(119, 59)
+        Label4.Name = "Label4"
+        Label4.Size = New Size(210, 17)
+        Label4.TabIndex = 1
+        Label4.Text = "Jln. Sultan Abdurrachman No. 11"
+        Label4.TextAlign = ContentAlignment.TopCenter
         ' 
         ' Label1
         ' 
         Label1.Anchor = AnchorStyles.None
         Label1.AutoSize = True
         Label1.Font = New Font("Bauhaus 93", 19.8000011F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        Label1.Location = New Point(74, 17)
+        Label1.Location = New Point(74, 20)
         Label1.Name = "Label1"
         Label1.Size = New Size(309, 39)
         Label1.TabIndex = 0
         Label1.Text = "KOPKAR SEJAHTERA"
         Label1.TextAlign = ContentAlignment.TopCenter
+        ' 
+        ' RubrikToolStripMenuItem
+        ' 
+        RubrikToolStripMenuItem.Name = "RubrikToolStripMenuItem"
+        RubrikToolStripMenuItem.Size = New Size(199, 26)
+        RubrikToolStripMenuItem.Text = "Rubrik"
+        ' 
+        ' KodeKelompokToolStripMenuItem
+        ' 
+        KodeKelompokToolStripMenuItem.Name = "KodeKelompokToolStripMenuItem"
+        KodeKelompokToolStripMenuItem.Size = New Size(199, 26)
+        KodeKelompokToolStripMenuItem.Text = "Kode Kelompok"
         ' 
         ' HalamanUtama
         ' 
@@ -276,13 +282,11 @@ Partial Class HalamanUtama
     Friend WithEvents MenuStrip1 As MenuStrip
     Friend WithEvents MasterToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents KodeRekeningToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents IdentitasPerusahaanToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents UserToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents TransaksiToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ToolStripSeparator1 As ToolStripSeparator
     Friend WithEvents LaporanToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents PemeliharaanToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents AboutToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents TransaksiToolStripMenuItem1 As ToolStripMenuItem
     Friend WithEvents TutupBukuToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents NeracaPercobaanToolStripMenuItem As ToolStripMenuItem
@@ -290,7 +294,6 @@ Partial Class HalamanUtama
     Friend WithEvents KasBankToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents SaldoAwalToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents TutupBukuToolStripMenuItem1 As ToolStripMenuItem
-    Friend WithEvents IdentitasPerusahaanToolStripMenuItem1 As ToolStripMenuItem
     Friend WithEvents Panel1 As Panel
     Friend WithEvents Panel2 As Panel
     Friend WithEvents Label1 As Label
@@ -299,4 +302,7 @@ Partial Class HalamanUtama
     Friend WithEvents Label2 As Label
     Friend WithEvents Label3 As Label
     Friend WithEvents Panel3 As Panel
+    Friend WithEvents Label4 As Label
+    Friend WithEvents RubrikToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents KodeKelompokToolStripMenuItem As ToolStripMenuItem
 End Class
