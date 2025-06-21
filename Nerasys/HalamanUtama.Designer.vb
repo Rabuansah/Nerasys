@@ -24,6 +24,8 @@ Partial Class HalamanUtama
     Private Sub InitializeComponent()
         MenuStrip1 = New MenuStrip()
         MasterToolStripMenuItem = New ToolStripMenuItem()
+        RubrikToolStripMenuItem = New ToolStripMenuItem()
+        KodeKelompokToolStripMenuItem = New ToolStripMenuItem()
         KodeRekeningToolStripMenuItem = New ToolStripMenuItem()
         UserToolStripMenuItem = New ToolStripMenuItem()
         TransaksiToolStripMenuItem = New ToolStripMenuItem()
@@ -46,8 +48,6 @@ Partial Class HalamanUtama
         Panel2 = New Panel()
         Label4 = New Label()
         Label1 = New Label()
-        RubrikToolStripMenuItem = New ToolStripMenuItem()
-        KodeKelompokToolStripMenuItem = New ToolStripMenuItem()
         MenuStrip1.SuspendLayout()
         Panel1.SuspendLayout()
         Panel2.SuspendLayout()
@@ -70,16 +70,28 @@ Partial Class HalamanUtama
         MasterToolStripMenuItem.Size = New Size(68, 24)
         MasterToolStripMenuItem.Text = "Master"
         ' 
+        ' RubrikToolStripMenuItem
+        ' 
+        RubrikToolStripMenuItem.Name = "RubrikToolStripMenuItem"
+        RubrikToolStripMenuItem.Size = New Size(224, 26)
+        RubrikToolStripMenuItem.Text = "Rubrik"
+        ' 
+        ' KodeKelompokToolStripMenuItem
+        ' 
+        KodeKelompokToolStripMenuItem.Name = "KodeKelompokToolStripMenuItem"
+        KodeKelompokToolStripMenuItem.Size = New Size(224, 26)
+        KodeKelompokToolStripMenuItem.Text = "Kode Kelompok"
+        ' 
         ' KodeRekeningToolStripMenuItem
         ' 
         KodeRekeningToolStripMenuItem.Name = "KodeRekeningToolStripMenuItem"
-        KodeRekeningToolStripMenuItem.Size = New Size(199, 26)
+        KodeRekeningToolStripMenuItem.Size = New Size(224, 26)
         KodeRekeningToolStripMenuItem.Text = "Kode Rekening"
         ' 
         ' UserToolStripMenuItem
         ' 
         UserToolStripMenuItem.Name = "UserToolStripMenuItem"
-        UserToolStripMenuItem.Size = New Size(199, 26)
+        UserToolStripMenuItem.Size = New Size(224, 26)
         UserToolStripMenuItem.Text = "User"
         ' 
         ' TransaksiToolStripMenuItem
@@ -92,18 +104,18 @@ Partial Class HalamanUtama
         ' ToolStripSeparator1
         ' 
         ToolStripSeparator1.Name = "ToolStripSeparator1"
-        ToolStripSeparator1.Size = New Size(163, 6)
+        ToolStripSeparator1.Size = New Size(221, 6)
         ' 
         ' TransaksiToolStripMenuItem1
         ' 
         TransaksiToolStripMenuItem1.Name = "TransaksiToolStripMenuItem1"
-        TransaksiToolStripMenuItem1.Size = New Size(166, 26)
+        TransaksiToolStripMenuItem1.Size = New Size(224, 26)
         TransaksiToolStripMenuItem1.Text = "Transaksi"
         ' 
         ' TutupBukuToolStripMenuItem
         ' 
         TutupBukuToolStripMenuItem.Name = "TutupBukuToolStripMenuItem"
-        TutupBukuToolStripMenuItem.Size = New Size(166, 26)
+        TutupBukuToolStripMenuItem.Size = New Size(224, 26)
         TutupBukuToolStripMenuItem.Text = "Tutup Buku"
         ' 
         ' LaporanToolStripMenuItem
@@ -170,7 +182,7 @@ Partial Class HalamanUtama
         Label3.Anchor = AnchorStyles.None
         Label3.AutoSize = True
         Label3.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        Label3.Location = New Point(197, 287)
+        Label3.Location = New Point(168, 283)
         Label3.Name = "Label3"
         Label3.Size = New Size(97, 20)
         Label3.TabIndex = 6
@@ -245,18 +257,6 @@ Partial Class HalamanUtama
         Label1.TabIndex = 0
         Label1.Text = "KOPKAR SEJAHTERA"
         Label1.TextAlign = ContentAlignment.TopCenter
-        ' 
-        ' RubrikToolStripMenuItem
-        ' 
-        RubrikToolStripMenuItem.Name = "RubrikToolStripMenuItem"
-        RubrikToolStripMenuItem.Size = New Size(199, 26)
-        RubrikToolStripMenuItem.Text = "Rubrik"
-        ' 
-        ' KodeKelompokToolStripMenuItem
-        ' 
-        KodeKelompokToolStripMenuItem.Name = "KodeKelompokToolStripMenuItem"
-        KodeKelompokToolStripMenuItem.Size = New Size(199, 26)
-        KodeKelompokToolStripMenuItem.Text = "Kode Kelompok"
         ' 
         ' HalamanUtama
         ' 

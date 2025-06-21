@@ -55,10 +55,12 @@ Partial Class FormLogin
         ' picTogglePassword
         ' 
         picTogglePassword.Anchor = AnchorStyles.None
-        picTogglePassword.Image = My.Resources.Resources.eye_open
+        picTogglePassword.BorderStyle = BorderStyle.FixedSingle
+        picTogglePassword.Image = My.Resources.Resources.eye_open1
         picTogglePassword.Location = New Point(481, 202)
         picTogglePassword.Name = "picTogglePassword"
         picTogglePassword.Size = New Size(34, 27)
+        picTogglePassword.SizeMode = PictureBoxSizeMode.CenterImage
         picTogglePassword.TabIndex = 7
         picTogglePassword.TabStop = False
         ' 

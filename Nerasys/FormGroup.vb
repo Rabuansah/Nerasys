@@ -1,58 +1,52 @@
 ﻿Imports MySql.Data.MySqlClient
 
-Public Class FormUser
+Public Class FormGroup
     Dim modeEdit As Boolean = False
-    Dim idEditUser As String = ""
+    Dim idEditGroup As String = ""
 
     Sub KondisiAwal()
         TextBox1.Text = ""
         TextBox2.Text = ""
-        ComboBox1.Items.Clear()
         ComboBox1.Text = ""
         TextBox1.Enabled = False
         TextBox2.Enabled = False
         ComboBox1.Enabled = False
-        ComboBox1.DropDownStyle = ComboBoxStyle.DropDownList
-        ComboBox1.Items.AddRange(New String() {"Admin", "User"})
 
-        Button1.Text = "Add New User"
+        Button1.Text = "Add New Group"
         Button2.Text = "Close"
         Button1.Enabled = True
         Button2.Enabled = True
         modeEdit = False
-        idEditUser = ""
+        idEditGroup = ""
 
         TampilkanData()
     End Sub
 
     Sub TampilkanData()
         Call Koneksi()
-        Da = New MySqlDataAdapter("SELECT id_user, username, role FROM tbl_user", Conn)
+        Da = New MySqlDataAdapter("SELECT id_group, kode_group, uraian_group, jenis_group FROM tbl_group", Conn)
         Ds = New DataSet
-        Da.Fill(Ds, "tbl_user")
+        Da.Fill(Ds, "tbl_group")
 
-        Dim dt As DataTable = Ds.Tables("tbl_user")
-        dt.Columns.Add("No", GetType(Integer))
-
-        For i As Integer = 0 To dt.Rows.Count - 1
-            dt.Rows(i)("No") = i + 1
-        Next
-
-        DataGridView1.DataSource = dt
-
-        ' Sembunyikan id_user
-        If DataGridView1.Columns.Contains("id_user") Then
-            DataGridView1.Columns("id_user").Visible = False
-        End If
-
+        DataGridView1.DataSource = Ds.Tables("tbl_group")
         TambahTombolAksi()
 
         With DataGridView1
-            If .Columns.Contains("No") Then .Columns("No").DisplayIndex = 0
-            If .Columns.Contains("username") Then .Columns("username").DisplayIndex = 1
-            If .Columns.Contains("role") Then .Columns("role").DisplayIndex = 2
+            If .Columns.Contains("kode_group") Then
+                .Columns("kode_group").HeaderText = "Kode Kelompok"
+                .Columns("kode_group").DisplayIndex = 0
+            End If
+            If .Columns.Contains("uraian_group") Then
+                .Columns("uraian_group").HeaderText = "Nama Kelompok"
+                .Columns("uraian_group").DisplayIndex = 1
+            End If
+            If .Columns.Contains("jenis_group") Then
+                .Columns("jenis_group").HeaderText = "Jenis"
+                .Columns("jenis_group").DisplayIndex = 2
+            End If
             If .Columns.Contains("Edit") Then .Columns("Edit").DisplayIndex = 3
             If .Columns.Contains("Delete") Then .Columns("Delete").DisplayIndex = 4
+            If .Columns.Contains("id_group") Then .Columns("id_group").Visible = False
         End With
     End Sub
 
@@ -80,11 +74,14 @@ Public Class FormUser
         TextBox1.Enabled = True
         TextBox2.Enabled = True
         ComboBox1.Enabled = True
+        ComboBox1.Items.Clear()
+        ComboBox1.Items.Add("Aktiva")
+        ComboBox1.Items.Add("Pasiva")
         ComboBox1.DropDownStyle = ComboBoxStyle.DropDownList
     End Sub
 
-    Private Sub FormUser_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Call KondisiAwal()
+    Private Sub FormGroup_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        KondisiAwal()
         With DataGridView1
             .AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
             .ColumnHeadersDefaultCellStyle.Font = New Font("Segoe UI", 10, FontStyle.Bold)
@@ -100,9 +97,9 @@ Public Class FormUser
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        If Button1.Text = "Add New User" Then
+        If Button1.Text = "Add New Group" Then
             Button1.Text = "Save"
-            Button2.Text = "Cancle"
+            Button2.Text = "Cancel"
             SiapIsi()
         Else
             If TextBox1.Text = "" Or TextBox2.Text = "" Or ComboBox1.Text = "" Then
@@ -113,28 +110,29 @@ Public Class FormUser
             Try
                 Call Koneksi()
 
+                ' Cek kode_group duplikat (saat insert)
                 If Not modeEdit Then
-                    Dim checkCmd = New MySqlCommand("SELECT COUNT(*) FROM tbl_user WHERE username = @username", Conn)
-                    checkCmd.Parameters.AddWithValue("@username", TextBox1.Text)
+                    Dim checkCmd = New MySqlCommand("SELECT COUNT(*) FROM tbl_group WHERE kode_group = @kode", Conn)
+                    checkCmd.Parameters.AddWithValue("@kode", TextBox1.Text)
                     Dim count = Convert.ToInt32(checkCmd.ExecuteScalar())
                     If count > 0 Then
-                        MsgBox("Username sudah digunakan.")
+                        MsgBox("Kode Kelompok sudah ada.")
                         Exit Sub
                     End If
                 End If
 
                 Dim query As String
                 If modeEdit Then
-                    query = "UPDATE tbl_user SET username=@username, password=@password, role=@role WHERE id_user=@id"
+                    query = "UPDATE tbl_group SET kode_group=@kode, uraian_group=@uraian, jenis_group=@jenis WHERE id_group=@id"
                 Else
-                    query = "INSERT INTO tbl_user (username, password, role) VALUES (@username, @password, @role)"
+                    query = "INSERT INTO tbl_group (kode_group, uraian_group, jenis_group) VALUES (@kode, @uraian, @jenis)"
                 End If
 
                 Cmd = New MySqlCommand(query, Conn)
-                Cmd.Parameters.AddWithValue("@username", TextBox1.Text)
-                Cmd.Parameters.AddWithValue("@password", TextBox2.Text)
-                Cmd.Parameters.AddWithValue("@role", ComboBox1.Text)
-                If modeEdit Then Cmd.Parameters.AddWithValue("@id", idEditUser)
+                Cmd.Parameters.AddWithValue("@kode", TextBox1.Text)
+                Cmd.Parameters.AddWithValue("@uraian", TextBox2.Text)
+                Cmd.Parameters.AddWithValue("@jenis", ComboBox1.Text)
+                If modeEdit Then Cmd.Parameters.AddWithValue("@id", idEditGroup)
 
                 Cmd.ExecuteNonQuery()
                 MsgBox("Data berhasil disimpan.")
@@ -155,35 +153,35 @@ Public Class FormUser
 
     Private Sub DataGridView1_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellClick
         If e.RowIndex >= 0 Then
-            Dim idUser As String = DataGridView1.Rows(e.RowIndex).Cells("id_user").Value.ToString()
+            Dim idGroup As String = DataGridView1.Rows(e.RowIndex).Cells("id_group").Value.ToString()
 
             If DataGridView1.Columns(e.ColumnIndex).Name = "Edit" Then
                 Try
                     Call Koneksi()
-                    Cmd = New MySqlCommand("SELECT * FROM tbl_user WHERE id_user = @id", Conn)
-                    Cmd.Parameters.AddWithValue("@id", idUser)
+                    Cmd = New MySqlCommand("SELECT * FROM tbl_group WHERE id_group = @id", Conn)
+                    Cmd.Parameters.AddWithValue("@id", idGroup)
                     Rd = Cmd.ExecuteReader()
                     If Rd.Read() Then
-                        TextBox1.Text = Rd("username").ToString()
-                        TextBox2.Text = Rd("password").ToString()
-                        ComboBox1.Text = Rd("role").ToString()
+                        TextBox1.Text = Rd("kode_group").ToString()
+                        TextBox2.Text = Rd("uraian_group").ToString()
+                        ComboBox1.Text = Rd("jenis_group").ToString()
 
                         SiapIsi()
                         modeEdit = True
-                        idEditUser = idUser
+                        idEditGroup = idGroup
                         Button1.Text = "Save"
-                        Button2.Text = "Cancle"
+                        Button2.Text = "Cancel"
                     End If
                     Rd.Close()
                 Catch ex As Exception
                     MsgBox("Gagal memuat data: " & ex.Message)
                 End Try
             ElseIf DataGridView1.Columns(e.ColumnIndex).Name = "Delete" Then
-                If MsgBox("Yakin ingin menghapus user ini?", vbYesNo + vbQuestion, "Konfirmasi") = vbYes Then
+                If MsgBox("Yakin ingin menghapus kelompok ini?", vbYesNo + vbQuestion, "Konfirmasi") = vbYes Then
                     Try
                         Call Koneksi()
-                        Cmd = New MySqlCommand("DELETE FROM tbl_user WHERE id_user = @id", Conn)
-                        Cmd.Parameters.AddWithValue("@id", idUser)
+                        Cmd = New MySqlCommand("DELETE FROM tbl_group WHERE id_group = @id", Conn)
+                        Cmd.Parameters.AddWithValue("@id", idGroup)
                         Cmd.ExecuteNonQuery()
                         MsgBox("Data berhasil dihapus.")
                         KondisiAwal()
@@ -193,23 +191,5 @@ Public Class FormUser
                 End If
             End If
         End If
-    End Sub
-
-    Private Sub DataGridView1_CellFormatting(sender As Object, e As DataGridViewCellFormattingEventArgs) Handles DataGridView1.CellFormatting
-        If DataGridView1.Columns(e.ColumnIndex).Name = "Edit" AndAlso e.RowIndex >= 0 Then
-            e.CellStyle.BackColor = Color.SkyBlue
-            e.CellStyle.ForeColor = Color.White
-            e.CellStyle.Font = New Font("Segoe UI", 9, FontStyle.Bold)
-        End If
-
-        If DataGridView1.Columns(e.ColumnIndex).Name = "Delete" AndAlso e.RowIndex >= 0 Then
-            e.CellStyle.BackColor = Color.IndianRed
-            e.CellStyle.ForeColor = Color.White
-            e.CellStyle.Font = New Font("Segoe UI", 9, FontStyle.Bold)
-        End If
-    End Sub
-
-    Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
-        ' Kosongkan saja jika tidak digunakan
     End Sub
 End Class

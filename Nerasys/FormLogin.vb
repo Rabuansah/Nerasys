@@ -23,14 +23,6 @@ Public Class FormLogin
         End If
     End Sub
 
-    Private Sub TxtPassword_LostFocus(sender As Object, e As EventArgs) Handles txtPassword.LostFocus
-        If txtPassword.Text = "" Then
-            txtPassword.Text = "Password"
-            txtPassword.ForeColor = Color.Gray
-            txtPassword.UseSystemPasswordChar = False
-        End If
-    End Sub
-
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         If txtUser.Text = "" Or txtPassword.Text = "" Then
             MsgBox("Username dan Password Tidak Boleh Kosong")
@@ -77,7 +69,7 @@ Public Class FormLogin
         txtPassword.ForeColor = Color.Gray
         txtPassword.UseSystemPasswordChar = False
 
-        picTogglePassword.Image = My.Resources.eye_closed
+        picTogglePassword.Image = My.Resources.eye_closed1
     End Sub
 
     Dim isPasswordVisible As Boolean = False
@@ -85,12 +77,12 @@ Public Class FormLogin
         If isPasswordVisible Then
             ' Hide password
             txtPassword.UseSystemPasswordChar = True
-            picTogglePassword.Image = My.Resources.eye_closed ' Ganti sesuai nama resource
+            picTogglePassword.Image = My.Resources.eye_closed1 ' Ganti sesuai nama resource
             isPasswordVisible = False
         Else
             ' Show password
             txtPassword.UseSystemPasswordChar = False
-            picTogglePassword.Image = My.Resources.eye_open
+            picTogglePassword.Image = My.Resources.eye_open1
             isPasswordVisible = True
         End If
     End Sub

@@ -38,7 +38,7 @@ Partial Class FormUser
         ' 
         Label1.Anchor = AnchorStyles.None
         Label1.AutoSize = True
-        Label1.Location = New Point(67, 101)
+        Label1.Location = New Point(50, 100)
         Label1.Name = "Label1"
         Label1.Size = New Size(75, 20)
         Label1.TabIndex = 0
@@ -48,7 +48,7 @@ Partial Class FormUser
         ' 
         Label2.Anchor = AnchorStyles.None
         Label2.AutoSize = True
-        Label2.Location = New Point(67, 137)
+        Label2.Location = New Point(50, 140)
         Label2.Name = "Label2"
         Label2.Size = New Size(70, 20)
         Label2.TabIndex = 1
@@ -58,7 +58,7 @@ Partial Class FormUser
         ' 
         Label3.Anchor = AnchorStyles.None
         Label3.AutoSize = True
-        Label3.Location = New Point(67, 173)
+        Label3.Location = New Point(50, 180)
         Label3.Name = "Label3"
         Label3.Size = New Size(39, 20)
         Label3.TabIndex = 2
@@ -67,35 +67,35 @@ Partial Class FormUser
         ' TextBox1
         ' 
         TextBox1.Anchor = AnchorStyles.None
-        TextBox1.Location = New Point(172, 98)
+        TextBox1.Location = New Point(150, 100)
         TextBox1.Name = "TextBox1"
-        TextBox1.Size = New Size(389, 27)
+        TextBox1.Size = New Size(566, 27)
         TextBox1.TabIndex = 3
         ' 
         ' TextBox2
         ' 
         TextBox2.Anchor = AnchorStyles.None
-        TextBox2.Location = New Point(172, 134)
+        TextBox2.Location = New Point(150, 140)
         TextBox2.Name = "TextBox2"
         TextBox2.PasswordChar = "x"c
-        TextBox2.Size = New Size(389, 27)
+        TextBox2.Size = New Size(566, 27)
         TextBox2.TabIndex = 4
         ' 
         ' ComboBox1
         ' 
         ComboBox1.Anchor = AnchorStyles.None
         ComboBox1.FormattingEnabled = True
-        ComboBox1.Location = New Point(172, 170)
+        ComboBox1.Location = New Point(150, 180)
         ComboBox1.Name = "ComboBox1"
-        ComboBox1.Size = New Size(389, 28)
+        ComboBox1.Size = New Size(150, 28)
         ComboBox1.TabIndex = 5
         ' 
         ' Button1
         ' 
         Button1.Anchor = AnchorStyles.None
-        Button1.Location = New Point(67, 46)
+        Button1.Location = New Point(50, 50)
         Button1.Name = "Button1"
-        Button1.Size = New Size(119, 35)
+        Button1.Size = New Size(130, 35)
         Button1.TabIndex = 6
         Button1.Text = "Add New User"
         Button1.UseVisualStyleBackColor = True
@@ -104,35 +104,36 @@ Partial Class FormUser
         ' 
         DataGridView1.Anchor = AnchorStyles.None
         DataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridView1.Location = New Point(67, 225)
+        DataGridView1.Location = New Point(50, 230)
         DataGridView1.Name = "DataGridView1"
         DataGridView1.RowHeadersWidth = 51
-        DataGridView1.Size = New Size(494, 225)
+        DataGridView1.Size = New Size(666, 350)
         DataGridView1.TabIndex = 10
         ' 
         ' Button2
         ' 
-        Button2.Location = New Point(468, 46)
+        Button2.Anchor = AnchorStyles.None
+        Button2.Location = New Point(200, 50)
         Button2.Name = "Button2"
-        Button2.Size = New Size(93, 35)
+        Button2.Size = New Size(90, 35)
         Button2.TabIndex = 11
-        Button2.Text = "Tutup"
+        Button2.Text = "Close"
         Button2.UseVisualStyleBackColor = True
         ' 
         ' FormUser
         ' 
         AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(649, 483)
-        Controls.Add(Button2)
-        Controls.Add(DataGridView1)
+        ClientSize = New Size(782, 653)
         Controls.Add(Button1)
-        Controls.Add(ComboBox1)
-        Controls.Add(TextBox2)
-        Controls.Add(TextBox1)
-        Controls.Add(Label3)
-        Controls.Add(Label2)
+        Controls.Add(Button2)
         Controls.Add(Label1)
+        Controls.Add(Label2)
+        Controls.Add(Label3)
+        Controls.Add(TextBox1)
+        Controls.Add(TextBox2)
+        Controls.Add(ComboBox1)
+        Controls.Add(DataGridView1)
         FormBorderStyle = FormBorderStyle.FixedToolWindow
         Name = "FormUser"
         StartPosition = FormStartPosition.CenterScreen

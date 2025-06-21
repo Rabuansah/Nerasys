@@ -14,4 +14,19 @@
         Label3.Text = "Login sebagai: " & LoggedInUsername
     End Sub
 
+    Private Sub RubrikToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RubrikToolStripMenuItem.Click
+        Rubrik.ShowDialog()
+    End Sub
+
+    Private Sub KodeKelompokToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles KodeKelompokToolStripMenuItem.Click
+        FormGroup.ShowDialog()
+    End Sub
+
+    Private Sub KodeRekeningToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles KodeRekeningToolStripMenuItem.Click
+        FormRekening.ShowDialog()
+    End Sub
+
+    Private Sub TransaksiToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles TransaksiToolStripMenuItem1.Click
+
+    End Sub
 End Class

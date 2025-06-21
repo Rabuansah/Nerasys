@@ -73,9 +73,29 @@ Namespace My.Resources
         '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
+        Friend ReadOnly Property eye_closed1() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("eye_closed1", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
         Friend ReadOnly Property eye_open() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("eye_open", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property eye_open1() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("eye_open1", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property
