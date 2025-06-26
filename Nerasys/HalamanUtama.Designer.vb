@@ -28,6 +28,8 @@ Partial Class HalamanUtama
         KodeKelompokToolStripMenuItem = New ToolStripMenuItem()
         KodeRekeningToolStripMenuItem = New ToolStripMenuItem()
         UserToolStripMenuItem = New ToolStripMenuItem()
+        JudulDetailToolStripMenuItem = New ToolStripMenuItem()
+        NeracaToolStripMenuItem = New ToolStripMenuItem()
         TransaksiToolStripMenuItem = New ToolStripMenuItem()
         ToolStripSeparator1 = New ToolStripSeparator()
         TransaksiToolStripMenuItem1 = New ToolStripMenuItem()
@@ -65,7 +67,7 @@ Partial Class HalamanUtama
         ' 
         ' MasterToolStripMenuItem
         ' 
-        MasterToolStripMenuItem.DropDownItems.AddRange(New ToolStripItem() {RubrikToolStripMenuItem, KodeKelompokToolStripMenuItem, KodeRekeningToolStripMenuItem, UserToolStripMenuItem})
+        MasterToolStripMenuItem.DropDownItems.AddRange(New ToolStripItem() {RubrikToolStripMenuItem, KodeKelompokToolStripMenuItem, KodeRekeningToolStripMenuItem, UserToolStripMenuItem, JudulDetailToolStripMenuItem, NeracaToolStripMenuItem})
         MasterToolStripMenuItem.Name = "MasterToolStripMenuItem"
         MasterToolStripMenuItem.Size = New Size(68, 24)
         MasterToolStripMenuItem.Text = "Master"
@@ -94,6 +96,18 @@ Partial Class HalamanUtama
         UserToolStripMenuItem.Size = New Size(224, 26)
         UserToolStripMenuItem.Text = "User"
         ' 
+        ' JudulDetailToolStripMenuItem
+        ' 
+        JudulDetailToolStripMenuItem.Name = "JudulDetailToolStripMenuItem"
+        JudulDetailToolStripMenuItem.Size = New Size(224, 26)
+        JudulDetailToolStripMenuItem.Text = "Judul Detail"
+        ' 
+        ' NeracaToolStripMenuItem
+        ' 
+        NeracaToolStripMenuItem.Name = "NeracaToolStripMenuItem"
+        NeracaToolStripMenuItem.Size = New Size(224, 26)
+        NeracaToolStripMenuItem.Text = "Neraca"
+        ' 
         ' TransaksiToolStripMenuItem
         ' 
         TransaksiToolStripMenuItem.DropDownItems.AddRange(New ToolStripItem() {ToolStripSeparator1, TransaksiToolStripMenuItem1, TutupBukuToolStripMenuItem})
@@ -104,18 +118,18 @@ Partial Class HalamanUtama
         ' ToolStripSeparator1
         ' 
         ToolStripSeparator1.Name = "ToolStripSeparator1"
-        ToolStripSeparator1.Size = New Size(221, 6)
+        ToolStripSeparator1.Size = New Size(163, 6)
         ' 
         ' TransaksiToolStripMenuItem1
         ' 
         TransaksiToolStripMenuItem1.Name = "TransaksiToolStripMenuItem1"
-        TransaksiToolStripMenuItem1.Size = New Size(224, 26)
+        TransaksiToolStripMenuItem1.Size = New Size(166, 26)
         TransaksiToolStripMenuItem1.Text = "Transaksi"
         ' 
         ' TutupBukuToolStripMenuItem
         ' 
         TutupBukuToolStripMenuItem.Name = "TutupBukuToolStripMenuItem"
-        TutupBukuToolStripMenuItem.Size = New Size(224, 26)
+        TutupBukuToolStripMenuItem.Size = New Size(166, 26)
         TutupBukuToolStripMenuItem.Text = "Tutup Buku"
         ' 
         ' LaporanToolStripMenuItem
@@ -305,4 +319,6 @@ Partial Class HalamanUtama
     Friend WithEvents Label4 As Label
     Friend WithEvents RubrikToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents KodeKelompokToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents JudulDetailToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents NeracaToolStripMenuItem As ToolStripMenuItem
 End Class

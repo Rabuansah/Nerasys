@@ -29,4 +29,12 @@
     Private Sub TransaksiToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles TransaksiToolStripMenuItem1.Click
 
     End Sub
+
+    Private Sub JudulDetailToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles JudulDetailToolStripMenuItem.Click
+        JudulDetail.ShowDialog()
+    End Sub
+
+    Private Sub NeracaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles NeracaToolStripMenuItem.Click
+        Neraca.ShowDialog()
+    End Sub
 End Class
